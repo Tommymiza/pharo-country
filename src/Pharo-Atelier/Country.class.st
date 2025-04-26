@@ -55,6 +55,24 @@ Country >> initialize [
 	^ self
 ]
 
+{ #category : 'as yet unclassified' }
+Country >> inspectorShape [
+<inspectorPresentationOrder: 0 title: 'Shape'>
+
+	| canvas |
+	canvas := RSCanvas new.
+	canvas add: self d.
+	canvas @ RSCanvasController .
+	^ SpRoassalInspectorPresenter new canvas: canvas; yourself
+]
+
+{ #category : 'printing' }
+Country >> printOn: aValueStream [
+
+	"super printOn: aValueStream."
+	aValueStream nextPutAll: title
+]
+
 { #category : 'accessing' }
 Country >> title [
 
